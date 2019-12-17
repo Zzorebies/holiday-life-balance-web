@@ -9,7 +9,7 @@ const VacationDaysInput = ({ vacationDays, setVacationDays }) => {
     if (value >= 30) {
       setError('너무 하시는 거 아닌가요? 😨');
     } else if (value <= 0) {
-      setError('0 이상의 숫자를 입력해 주세요. 😊');
+      setError('1 이상의 숫자를 입력해 주세요. 😊');
     } else {
       setError(null);
     }
