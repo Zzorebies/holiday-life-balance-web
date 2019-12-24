@@ -14,7 +14,7 @@ const VacationDaysInput = ({ vacationDays, setVacationDays }) => {
       setError(null);
     }
 
-    setVacationDays(e.target.value);
+    setVacationDays(value);
   };
 
   return (
