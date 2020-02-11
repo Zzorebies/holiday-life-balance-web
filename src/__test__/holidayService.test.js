@@ -1,4 +1,4 @@
-import { getDates, addDays, isWeekend } from '../holidayService';
+import { getDates, addDays, isWeekend, getHolidays, getNonWeekendHolidays } from '../holidayService';
 
 describe('holidayService', () => {
   describe('getDates', () => {
@@ -83,6 +83,25 @@ describe('holidayService', () => {
       const date = new Date('2020-01-01');
 
       expect(isWeekend(date)).toBe(false);
+    });
+  });
+
+  describe('getHolidays', () => {
+    it('returns an empty list when year is missing', () => {
+      expect(getHolidays()).toEqual([]);
+    });
+
+    it('returns correct number of holidays', () => {
+      expect(getHolidays(2020).length).toEqual(16);
+      expect(getHolidays(2021).length).toEqual(15);
+      expect(getHolidays(2022).length).toEqual(16);
+    });
+  });
+
+  describe('getNonWeekendHolidays', () => {
+    it('returns non-weekend holidays', () => {
+      const nonWeekendHoliday = getNonWeekendHolidays(2020)[0];
+      expect(isWeekend(new Date(nonWeekendHoliday.date))).toBe(false);
     });
   });
 });
