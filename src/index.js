@@ -1,11 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { ThemeProvider } from 'styled-components';
+import WebFontLoader from 'webfontloader';
 
 import App from './App';
 import GlobalStyle from './GlobalStyle';
 import theme from './theme';
 import * as serviceWorker from './serviceWorker';
+
+WebFontLoader.load({
+  google: {
+    families: ['Open Sans']
+  }
+});
 
 ReactDOM.render(
   <>
