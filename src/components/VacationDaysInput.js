@@ -4,7 +4,7 @@ const VacationDaysInput = ({ vacationDays, setVacationDays }) => {
   const [error, setError] = useState(null);
 
   const handleChange = e => {
-    const value = e.target.value;
+    const value = Number(e.target.value);
 
     if (value >= 30) {
       setError('너무 하시는 거 아닌가요? 😨');
