@@ -1,7 +1,7 @@
 import { addDays, getNonWeekendHolidays } from './holidayService';
 import { getNumberOfWeekends, getPreviousWeekend } from './weekendService';
 
-export const getHolidayRecommendations = (year, vacationDurationDays) => {
+export const getHolidayRecommendations = (year, vacationDays) => {
   const holidayRecommendations = [];
   const nonWeekendHolidays = getNonWeekendHolidays(year);
 
@@ -11,22 +11,17 @@ export const getHolidayRecommendations = (year, vacationDurationDays) => {
 
     const startDate =
       currentDate.getDay() >= 3 ? currentDate : getPreviousWeekend(currentDate);
-    const endDate = addDays(startDate, vacationDurationDays);
+    const endDate = addDays(startDate, vacationDays);
 
-    const numberOfWeekends = getNumberOfWeekends(
-      startDate,
-      vacationDurationDays
-    );
+    const numberOfWeekends = getNumberOfWeekends(startDate, vacationDays);
 
     let numberOfHolidays = 1;
-    if (i < nonWeekendHolidays.length - 1) {
-      while (
-        new Date(nonWeekendHolidays[i + 1].date) <= endDate &&
-        i < nonWeekendHolidays.length - 1
-      ) {
-        i++;
-        numberOfHolidays++;
-      }
+    while (
+      i < nonWeekendHolidays.length - 1 &&
+      new Date(nonWeekendHolidays[i + 1].date) <= endDate
+    ) {
+      i++;
+      numberOfHolidays++;
     }
 
     const holidayRecommendation = {
@@ -34,8 +29,7 @@ export const getHolidayRecommendations = (year, vacationDurationDays) => {
       endDate: endDate,
       numberOfHolidays: numberOfHolidays,
       numberOfWeekends: numberOfWeekends,
-      numberOfAnnualLeaves:
-        vacationDurationDays - numberOfHolidays - numberOfWeekends
+      numberOfAnnualLeaves: vacationDays - numberOfHolidays - numberOfWeekends
     };
     holidayRecommendations.push(holidayRecommendation);
   }

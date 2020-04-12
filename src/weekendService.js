@@ -12,8 +12,8 @@ export const getNextWeekend = date => {
   return addDays(currentDate, 6 - currentDate.getDay());
 };
 
-export const getNumberOfWeekends = (startDate, vacationDurationDays) => {
-  const endDateDay = startDate.getDay() + vacationDurationDays;
+export const getNumberOfWeekends = (startDate, vacationDays) => {
+  const endDateDay = startDate.getDay() + vacationDays;
 
   const numberOfFullWeekends = Math.trunc(endDateDay / 7);
   const numberOfHalfWeekends = endDateDay % 7 === 6 ? 1 : 0;
