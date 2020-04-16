@@ -3,7 +3,7 @@ import {
   getPreviousWeekend,
   getNextWeekend,
   getNumberOfWeekends
-} from '../weekendService';
+} from '../../services/weekendService';
 
 describe('weekendService', () => {
   describe('isWeekend', () => {

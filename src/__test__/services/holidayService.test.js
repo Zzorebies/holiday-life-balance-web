@@ -3,8 +3,8 @@ import {
   addDays,
   getHolidays,
   getNonWeekendHolidays
-} from '../holidayService';
-import { isWeekend } from '../weekendService';
+} from '../../services/holidayService';
+import { isWeekend } from '../../services/weekendService';
 
 describe('holidayService', () => {
   describe('getDates', () => {

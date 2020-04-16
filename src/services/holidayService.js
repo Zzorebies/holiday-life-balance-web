@@ -1,5 +1,5 @@
-import holidays from './mock/holidays.json';
-import { isWeekend } from './weekendService';
+import holidays from '../mock/holidays.json';
+import { isWeekend } from '../services/weekendService';
 
 export const getDates = (rangeStartDateIso, rangeEndDateIso) => {
   const endDate = new Date(rangeEndDateIso);

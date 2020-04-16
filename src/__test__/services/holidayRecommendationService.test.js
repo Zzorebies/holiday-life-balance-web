@@ -1,4 +1,4 @@
-import { getHolidayRecommendations } from '../holidayRecommendationService';
+import { getHolidayRecommendations } from '../../services/holidayRecommendationService';
 
 describe('holidayService', () => {
   describe('getHolidayRecommendations', () => {

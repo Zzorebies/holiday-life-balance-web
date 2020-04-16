@@ -1,5 +1,8 @@
-import { addDays, getNonWeekendHolidays } from './holidayService';
-import { getNumberOfWeekends, getPreviousWeekend } from './weekendService';
+import { addDays, getNonWeekendHolidays } from '../services/holidayService';
+import {
+  getNumberOfWeekends,
+  getPreviousWeekend
+} from '../services/weekendService';
 
 export const getHolidayRecommendations = (year, vacationDays) => {
   const holidayRecommendations = [];

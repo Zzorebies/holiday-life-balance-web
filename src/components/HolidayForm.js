@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import YearPicker from './YearPicker';
 import VacationDaysInput from './VacationDaysInput';
 import HolidayRecommendationList from './HolidayRecommendationList';
-import { getHolidayRecommendations } from '../holidayRecommendationService';
+import { getHolidayRecommendations } from '../services/holidayRecommendationService';
 
 const HolidayForm = () => {
   const currentYear = new Date().getFullYear();

@@ -1,4 +1,4 @@
-import { addDays } from './holidayService';
+import { addDays } from '../services/holidayService';
 
 export const isWeekend = date => date.getDay() === 6 || date.getDay() === 0;
 
