@@ -27,12 +27,15 @@ export const getHolidayRecommendations = (year, vacationDays) => {
       numberOfHolidays++;
     }
 
+    const numberOfAnnualLeaves =
+      vacationDays - numberOfHolidays - numberOfWeekends;
+
     const holidayRecommendation = {
       startDate: startDate,
       endDate: endDate,
       numberOfHolidays: numberOfHolidays,
       numberOfWeekends: numberOfWeekends,
-      numberOfAnnualLeaves: vacationDays - numberOfHolidays - numberOfWeekends
+      numberOfAnnualLeaves: numberOfAnnualLeaves >= 0 ? numberOfAnnualLeaves : 0
     };
     holidayRecommendations.push(holidayRecommendation);
   }
