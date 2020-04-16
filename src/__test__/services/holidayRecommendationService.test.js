@@ -4,7 +4,7 @@ describe('holidayService', () => {
   describe('getHolidayRecommendations', () => {
     it('returns all holiday recommendations in given year', () => {
       const holidayRecommendations = getHolidayRecommendations(2020, 8);
-      expect(holidayRecommendations.length).toEqual(6);
+      expect(holidayRecommendations.length).toEqual(10);
     });
 
     it('returns holiday recommendations sorted by numberOfAnnualLeaves asc', () => {

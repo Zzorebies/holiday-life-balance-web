@@ -19,11 +19,12 @@ export const getHolidayRecommendations = (year, vacationDays) => {
     const numberOfWeekends = getNumberOfWeekends(startDate, vacationDays);
 
     let numberOfHolidays = 1;
+    let j = i;
     while (
-      i < nonWeekendHolidays.length - 1 &&
-      new Date(nonWeekendHolidays[i + 1].date) <= endDate
+      j < nonWeekendHolidays.length - 1 &&
+      new Date(nonWeekendHolidays[j + 1].date) <= endDate
     ) {
-      i++;
+      j++;
       numberOfHolidays++;
     }
 
