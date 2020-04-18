@@ -22,26 +22,12 @@ export const addDays = (date, days) => {
   return newDate;
 };
 
-export const getHolidays = year => {
-  const selectedYearHolidays = [];
-
-  for (let holiday of holidays) {
-    if (holiday.year === year) {
-      selectedYearHolidays.push(holiday);
-    }
-  }
-
-  return selectedYearHolidays;
+export const getHolidays = (year) => {
+  return holidays.filter((holiday) => holiday.year === year);
 };
 
-export const getNonWeekendHolidays = year => {
-  const nonWeekendHolidays = [];
-
-  for (let holiday of holidays) {
-    if (holiday.year === year && !isWeekend(new Date(holiday.date))) {
-      nonWeekendHolidays.push(holiday);
-    }
-  }
-
-  return nonWeekendHolidays;
+export const getNonWeekendHolidays = (year) => {
+  return holidays.filter(
+    (holiday) => holiday.year === year && !isWeekend(new Date(holiday.date))
+  );
 };
