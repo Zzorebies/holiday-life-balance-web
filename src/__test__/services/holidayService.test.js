@@ -1,4 +1,10 @@
-import { getDates, addDays, isWeekend, getHolidays, getNonWeekendHolidays } from '../holidayService';
+import {
+  getDates,
+  addDays,
+  getHolidays,
+  getNonWeekendHolidays
+} from '../../services/holidayService';
+import { isWeekend } from '../../services/weekendService';
 
 describe('holidayService', () => {
   describe('getDates', () => {
@@ -63,26 +69,6 @@ describe('holidayService', () => {
       const nextDay = addDays(date, 1);
 
       expect(nextDay).toEqual(new Date('2020-01-01'));
-    });
-  });
-
-  describe('isWeekend', () => {
-    it('counts Saturday as a weekend', () => {
-      const date = new Date('2019-12-28');
-
-      expect(isWeekend(date)).toBe(true);
-    });
-
-    it('counts Sunday as a weekend', () => {
-      const date = new Date('2020-03-15');
-
-      expect(isWeekend(date)).toBe(true);
-    });
-
-    it('does not count a weekday as a weekend', () => {
-      const date = new Date('2020-01-01');
-
-      expect(isWeekend(date)).toBe(false);
     });
   });
 

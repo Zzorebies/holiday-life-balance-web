@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import YearPicker from './YearPicker';
 import VacationDaysInput from './VacationDaysInput';
+import HolidayRecommendationList from './HolidayRecommendationList';
+import { getHolidayRecommendations } from '../services/holidayRecommendationService';
 
 const HolidayForm = () => {
   const currentYear = new Date().getFullYear();
@@ -9,27 +11,33 @@ const HolidayForm = () => {
 
   const [selectedYear, setSelectedYear] = useState(currentYear);
   const [vacationDays, setVacationDays] = useState(defaultVacationDays);
+  const [holidayRecommendations, setHolidayRecommendations] = useState([]);
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    // TODO: Perform calculation and remove console.logs
-    console.log(selectedYear);
-    console.log(vacationDays);
+    setHolidayRecommendations(
+      getHolidayRecommendations(selectedYear, vacationDays)
+    );
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <YearPicker
-        setSelectedYear={setSelectedYear}
-        startingYear={currentYear}
+    <div>
+      <form onSubmit={handleSubmit}>
+        <YearPicker
+          setSelectedYear={setSelectedYear}
+          startingYear={currentYear}
+        />
+        <VacationDaysInput
+          vacationDays={vacationDays}
+          setVacationDays={setVacationDays}
+        />
+        <button>언제가 좋을까?</button>
+      </form>
+      <HolidayRecommendationList
+        holidayRecommendations={holidayRecommendations}
       />
-      <VacationDaysInput
-        vacationDays={vacationDays}
-        setVacationDays={setVacationDays}
-      />
-      <button>언제가 좋을까?</button>
-    </form>
+    </div>
   );
 };
 

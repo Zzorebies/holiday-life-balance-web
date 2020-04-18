@@ -1,4 +1,5 @@
-import holidays from './mock/holidays.json';
+import holidays from '../mock/holidays.json';
+import { isWeekend } from '../services/weekendService';
 
 export const getDates = (rangeStartDateIso, rangeEndDateIso) => {
   const endDate = new Date(rangeEndDateIso);
@@ -20,8 +21,6 @@ export const addDays = (date, days) => {
 
   return newDate;
 };
-
-export const isWeekend = date => date.getDay() === 6 || date.getDay() === 0;
 
 export const getHolidays = year => {
   const selectedYearHolidays = [];

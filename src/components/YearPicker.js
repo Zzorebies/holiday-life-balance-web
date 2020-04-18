@@ -2,7 +2,7 @@ import React from 'react';
 
 const YearPicker = ({
   startingYear,
-  maxNumberOfYears = 5,
+  maxNumberOfYears = 3,
   setSelectedYear
 }) => {
   const years = [...Array(maxNumberOfYears).keys()].map(n => n + startingYear);
