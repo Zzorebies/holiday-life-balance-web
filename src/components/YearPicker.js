@@ -5,17 +5,19 @@ const YearPicker = ({
   maxNumberOfYears = 3,
   setSelectedYear
 }) => {
-  const years = [...Array(maxNumberOfYears).keys()].map(n => n + startingYear);
+  const years = [...Array(maxNumberOfYears).keys()].map(
+    (n) => n + startingYear
+  );
 
-  const handleChange = e => {
-    setSelectedYear(e.target.value);
+  const handleChange = (e) => {
+    setSelectedYear(Number(e.target.value));
   };
 
   return (
     <div>
       <label htmlFor="year">년도</label>
       <select name="year" onChange={handleChange}>
-        {years.map(year => (
+        {years.map((year) => (
           <option key={year} value={year}>
             {year}
           </option>
