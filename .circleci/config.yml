@@ -3,7 +3,7 @@ version: 2.1
 executors:
   node:
     docker:
-      - image: circleci/node:13.8.0
+      - image: circleci/node:12.16
 
 aliases:
   restore_cache: &restore_cache

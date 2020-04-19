@@ -8,7 +8,12 @@ const HolidayRecommendationList = ({ holidayRecommendations }) => {
 
   return (
     <div>
-      <h4>홀라밸의 추천 휴가 ✈️</h4>
+      <h4>
+        홀라밸의 추천 휴가{' '}
+        <span role="img" aria-label="airplane">
+          ✈️
+        </span>
+      </h4>
       <ul>
         {topFiveHolidayRecommendations.map((holidayRecommendation, index) => {
           const {

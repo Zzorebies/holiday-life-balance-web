@@ -28,15 +28,17 @@ export const getHolidayRecommendations = (year, vacationDays) => {
       numberOfHolidays++;
     }
 
-    const numberOfAnnualLeaves =
-      vacationDays - numberOfHolidays - numberOfWeekends;
+    const numberOfAnnualLeaves = Math.max(
+      vacationDays - numberOfHolidays - numberOfWeekends,
+      0
+    );
 
     const holidayRecommendation = {
-      startDate: startDate,
-      endDate: endDate,
-      numberOfHolidays: numberOfHolidays,
-      numberOfWeekends: numberOfWeekends,
-      numberOfAnnualLeaves: numberOfAnnualLeaves >= 0 ? numberOfAnnualLeaves : 0
+      startDate,
+      endDate,
+      numberOfHolidays,
+      numberOfWeekends,
+      numberOfAnnualLeaves
     };
     holidayRecommendations.push(holidayRecommendation);
   }
