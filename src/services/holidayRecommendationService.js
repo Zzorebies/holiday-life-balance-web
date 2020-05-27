@@ -43,9 +43,7 @@ export const getHolidayRecommendations = (year, vacationDays) => {
     holidayRecommendations.push(holidayRecommendation);
   }
 
-  holidayRecommendations.sort(
-    (a, b) => a.numberOfAnnualLeaves - b.numberOfAnnualLeaves
-  );
-
-  return holidayRecommendations;
+  return holidayRecommendations
+    .sort((a, b) => a.numberOfAnnualLeaves - b.numberOfAnnualLeaves)
+    .filter((recommendation) => Date.now() <= recommendation.startDate);
 };
