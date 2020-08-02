@@ -1,5 +1,6 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
+import { ReactComponent as HlbLogo } from '../assets/hlb_logo.svg';
 import styled from 'styled-components';
 
 const Header = ({ className }) => {
@@ -7,7 +8,10 @@ const Header = ({ className }) => {
     <div className={className}>
       <Container maxWidth="sm">
         <div className="header-center">
-          <h1>Holiday Life Balance</h1>
+          <h1>
+            <HlbLogo fill="white" width="50px" aria-hidden="true" />
+            Holiday Life Balance
+          </h1>
           <h3>최소한의 연차로 최대한의 휴가를 즐기고 싶은 당신을 위해</h3>
         </div>
       </Container>
