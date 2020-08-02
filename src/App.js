@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Container from '@material-ui/core/Container';
+import Footer from './components/Footer';
 import Header from './components/Header';
 import HolidayForm from './components/HolidayForm';
 import HolidayRecommendationList from './components/HolidayRecommendationList';
@@ -16,6 +17,7 @@ function App() {
           holidayRecommendations={holidayRecommendations}
         />
       </Container>
+      <Footer />
     </>
   );
 }
