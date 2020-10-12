@@ -9,8 +9,16 @@ const StyledModal = styled(Modal)`
   margin: 1.5rem;
 
   .modal-body {
-    padding: 1rem;
     background-color: ${(props) => props.theme.color.white};
+    padding: 1rem;
+  }
+
+  .modal-top-bar {
+    text-align: right;
+    margin-bottom: -1rem;
+    span {
+      cursor: pointer;
+    }
   }
 `;
 
@@ -25,6 +33,11 @@ const HolidayRecommendationListModal = ({
   return (
     <StyledModal open={isOpen} onClose={handleClose} className={className}>
       <div className="modal-body">
+        <div className="modal-top-bar">
+          <span role="img" aria-label="close-button" onClick={handleClose}>
+            ✕
+          </span>
+        </div>
         <h4>
           홀라밸의 추천 휴가{' '}
           <span role="img" aria-label="airplane">
