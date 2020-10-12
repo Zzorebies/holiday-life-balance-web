@@ -1,35 +1,30 @@
 import React from 'react';
 import Modal from '@material-ui/core/Modal';
-import { makeStyles } from '@material-ui/core/styles';
+import styled from 'styled-components';
 
-const useStyles = makeStyles(() => ({
-  modal: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    margin: '1.5rem'
-  },
-  modalBody: {
-    padding: '1rem',
-    backgroundColor: '#fff'
+const StyledModal = styled(Modal)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem;
+
+  .modal-body {
+    padding: 1rem;
+    background-color: ${(props) => props.theme.color.white};
   }
-}));
+`;
 
 const HolidayRecommendationListModal = ({
+  className,
   isOpen,
   handleClose,
   holidayRecommendations
 }) => {
-  const classes = useStyles();
-
-  const topFiveHolidayRecommendations =
-    holidayRecommendations.length > 5
-      ? holidayRecommendations.slice(0, 5)
-      : holidayRecommendations;
+  const topFiveHolidayRecommendations = holidayRecommendations.slice(0, 5);
 
   return (
-    <Modal open={isOpen} onClose={handleClose} className={classes.modal}>
-      <div className={classes.modalBody}>
+    <StyledModal open={isOpen} onClose={handleClose} className={className}>
+      <div className="modal-body">
         <h4>
           홀라밸의 추천 휴가{' '}
           <span role="img" aria-label="airplane">
@@ -54,7 +49,7 @@ const HolidayRecommendationListModal = ({
           })}
         </ul>
       </div>
-    </Modal>
+    </StyledModal>
   );
 };
 
