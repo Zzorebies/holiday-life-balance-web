@@ -5,7 +5,7 @@ import { getHolidayRecommendations } from '../services/holidayRecommendationServ
 import VacationDaysInput from './VacationDaysInput';
 import YearPicker from './YearPicker';
 
-const HolidayForm = ({ className, setHolidayRecommendations }) => {
+const HolidayForm = ({ className, showRecommendations }) => {
   const currentYear = new Date().getFullYear();
   const defaultVacationDays = 5;
 
@@ -15,9 +15,7 @@ const HolidayForm = ({ className, setHolidayRecommendations }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setHolidayRecommendations(
-      getHolidayRecommendations(selectedYear, vacationDays)
-    );
+    showRecommendations(getHolidayRecommendations(selectedYear, vacationDays));
   };
 
   return (
